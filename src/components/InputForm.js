@@ -46,8 +46,10 @@ const InputForm = ({ calculateEMI, clearResults }) => {
           required
         />
       </div>
-      <button type="submit">Calculate EMI</button>
-      <button type="button" onClick={handleClear} style={{ marginLeft: '10px', backgroundColor: 'red', color: 'white' }}>Clear</button>
+      <div className="button-container">
+        <button type="submit">Calculate EMI</button>
+        <button type="button" onClick={handleClear}>Clear</button>
+      </div>
     </form>
   );
 };

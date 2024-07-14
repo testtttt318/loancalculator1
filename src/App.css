@@ -32,6 +32,12 @@ input {
   box-sizing: border-box;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column; /* Ensure buttons are stacked */
+  width: 100%;
+}
+
 button {
   padding: 10px;
   margin-top: 10px;

@@ -33,12 +33,13 @@ input {
 }
 
 button {
-  padding: 10px 0;
+  padding: 10px;
   margin-top: 10px;
   border: none;
   border-radius: 5px; /* Add border radius */
   cursor: pointer;
   width: 100%; /* Full width buttons */
+  box-sizing: border-box;
 }
 
 button:hover {

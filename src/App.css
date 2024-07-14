@@ -4,7 +4,9 @@
 }
 
 form {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
   padding: 20px;
   border: 1px solid #ccc;
@@ -15,6 +17,7 @@ form {
 }
 
 form div {
+  width: 100%; /* Ensure the divs take up full width */
   margin: 15px 0; /* Increased margin for better spacing */
 }
 
@@ -32,26 +35,24 @@ input {
 button {
   padding: 10px 20px;
   margin-top: 10px;
-  background-color: #007BFF;
-  color: white;
   border: none;
   border-radius: 5px; /* Add border radius */
   cursor: pointer;
   width: 100%; /* Full width buttons */
+  max-width: 260px; /* Add max-width to make buttons look uniform */
 }
 
 button:hover {
-  background-color: #0056b3;
+  opacity: 0.9;
+}
+
+button[type="submit"] {
+  background-color: #007BFF;
+  color: white;
 }
 
 button[type="button"] {
   background-color: #FF0000;
-}
-
-button[type="button"]:hover {
-  background-color: #cc0000;
-}
-
-.result {
-  margin-top: 20px;
+  color: white;
+  margin-top: 10px; /* Add margin between the buttons */
 }

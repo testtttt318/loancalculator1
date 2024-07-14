@@ -1,4 +1,7 @@
+// src/components/InputForm.js
 import React, { useState } from 'react';
+import { generatePaymentSchedule } from '../utils/paymentSchedule';
+import { saveAsExcel, saveAsPDF } from '../utils/fileGenerator';
 
 const InputForm = ({ calculateEMI, clearResults }) => {
   const [principal, setPrincipal] = useState('');
@@ -7,7 +10,9 @@ const InputForm = ({ calculateEMI, clearResults }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    calculateEMI(parseFloat(principal), parseFloat(annualRate), parseFloat(term));
+    const emi = calculateEMI(parseFloat(principal), parseFloat(annualRate), parseFloat(term));
+    const schedule = generatePaymentSchedule(parseFloat(principal), parseFloat(annualRate), parseFloat(term));
+    setSchedule(schedule);
   };
 
   const handleClear = () => {
@@ -16,6 +21,8 @@ const InputForm = ({ calculateEMI, clearResults }) => {
     setTerm('');
     clearResults();
   };
+
+  const [schedule, setSchedule] = useState([]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,6 +57,20 @@ const InputForm = ({ calculateEMI, clearResults }) => {
         <button type="submit">Calculate EMI</button>
         <button type="button" onClick={handleClear}>Clear</button>
       </div>
+      {schedule.length > 0 && (
+        <div>
+          <h3>Payment Schedule Preview</h3>
+          <ul>
+            {schedule.slice(0, 5).map((payment, index) => (
+              <li key={index}>
+                {payment.date.toDateString()}: ${payment.amount.toFixed(2)}
+              </li>
+            ))}
+          </ul>
+          <button onClick={() => saveAsExcel(schedule)}>Download as Excel</button>
+          <button onClick={() => saveAsPDF(schedule)}>Download as PDF</button>
+        </div>
+      )}
     </form>
   );
 };

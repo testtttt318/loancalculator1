@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin: 10px 0;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"] {
+  background-color: #FF0000;
+  margin-top: 10px;
+}
+
+button[type="button"]:hover {
+  background-color: #cc0000;
+}
+
+.result {
+  margin-top: 20px;
+}

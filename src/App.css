@@ -39,7 +39,8 @@ button {
   border-radius: 5px; /* Add border radius */
   cursor: pointer;
   width: 100%; /* Full width buttons */
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  text-align: center; /* Center text inside buttons */
 }
 
 button:hover {
